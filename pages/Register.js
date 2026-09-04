@@ -1,5 +1,7 @@
-class Register{
+import { BasePage } from "./BasePage";
+class Register extends BasePage {
     constructor(page) {
+        super(page);
         this.page = page;
 
         // Locators
@@ -11,10 +13,6 @@ class Register{
         this.password = page.locator('#Password');
         this.cPassword = page.locator('#ConfirmPassword');
         this.rButton = page.locator('#register-button');
-    }
-
-    async pageOpen(url) {
-        await this.page.goto(url);
     }
 
     async clickRegisterLink() {
