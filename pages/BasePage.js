@@ -10,7 +10,7 @@ class BasePage{
             waitUntil: 'domcontentloaded',
             timeout: 60000
         });
-        this.page.setViewportSize({ width: 1920, height: 1080 });
+        await this.page.setViewportSize({ width: 1920, height: 1080 });
     }
 // page close
     async pageClose(){
