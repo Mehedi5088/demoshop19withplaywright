@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { LoginPage as Login } from "../pages/LoginPage.js";
 import 'dotenv/config';
 import { loginData } from '../testData/logintest.js';
@@ -33,6 +33,7 @@ const sheetName = workbook.SheetNames[0];
 const worksheet = workbook.Sheets[sheetName];
 
 const testData = XLSX.utils.sheet_to_json(worksheet);
+console.log(testData);
 for (const data of testData) {
 
     test(`Login test - ${data.username}`, async ({ page }) => {
@@ -45,6 +46,9 @@ for (const data of testData) {
         await page.getByLabel('Password').fill(data.password);
         await pages.clickRememberMeCheckbox();
         await pages.clickLoginButton();
+        await expect(
+        page.getByRole('link', { name: 'Log out' })
+        ).toBeVisible();
         await page.waitForTimeout(2000);
 
     });
