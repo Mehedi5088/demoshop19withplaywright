@@ -12,6 +12,7 @@ class LoginPage extends BasePage {
         this.passwordInput = page.locator('#Password');
         this.rememberMeCheckbox = page.locator('#RememberMe');
         this.loginButton = page.locator('input[value="Log in"]');
+        this.verifyLogin = page.locator("a[href='/logout']");
     }
 
     async clickLoginButtonLink() {

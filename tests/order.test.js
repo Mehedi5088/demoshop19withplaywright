@@ -20,5 +20,8 @@ test('Should order successfully', async ({ page }) => {
     await orders.clickMenuBooks();
     await page.waitForTimeout(3000);
     await orders.filterByPrice();   
+    await orders.viewProduct();
+    await orders.addToCart();
+    await orders.shoppingCart();
     await page.pause();
 }); 
